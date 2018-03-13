@@ -78,7 +78,7 @@ class Listener {
     }
 
     validateId() {
-        let newId = this.spanId.textContent;
+        let newId = this.spanId.textContent.trim();
         let considenceId = false;
 
         this.data.etalonUsersArr.forEach((elem) => {
@@ -89,13 +89,13 @@ class Listener {
     }
 
     validateOtherDate() {
-        let newId = this.spanId.textContent;
-        let newName = this.spanName.textContent;
-        let newUserName = this.spanUserName.textContent;
-        let newEmail = this.spanEmail.textContent;
-        let newCity = this.spanCity.textContent;
-        let newPhone = this.spanPhone.textContent;
-        let newWebSite = this.spanWebSite.textContent;
+        let newId = this.spanId.textContent.trim();
+        let newName = this.spanName.textContent.trim();
+        let newUserName = this.spanUserName.textContent.trim();
+        let newEmail = this.spanEmail.textContent.trim();
+        let newCity = this.spanCity.textContent.trim();
+        let newPhone = this.spanPhone.textContent.trim();
+        let newWebSite = this.spanWebSite.textContent.trim();
 
         let flag = false;
 
@@ -142,7 +142,7 @@ class Listener {
     }
 
     validateNewUserId() {
-        let newIdAdd = this.spanIdAdd.textContent;
+        let newIdAdd = this.spanIdAdd.textContent.trim();
         let considenceIdAdd = false;
 
         this.data.etalonUsersArr.forEach((elem) => {
@@ -153,13 +153,13 @@ class Listener {
     }
 
     validateNewUserData() {
-        let newIdAdd = this.spanIdAdd.textContent;
-        let newNameAdd = this.spanNameAdd.textContent;
-        let newUserNameAdd = this.spanUserNameAdd.textContent;
-        let newEmailAdd = this.spanEmailAdd.textContent;
-        let newCityAdd = this.spanCityAdd.textContent;
-        let newPhoneAdd = this.spanPhoneAdd.textContent;
-        let newWebSiteAdd = this.spanWebSiteAdd.textContent;
+        let newIdAdd = this.spanIdAdd.textContent.trim();
+        let newNameAdd = this.spanNameAdd.textContent.trim();
+        let newUserNameAdd = this.spanUserNameAdd.textContent.trim();
+        let newEmailAdd = this.spanEmailAdd.textContent.trim();
+        let newCityAdd = this.spanCityAdd.textContent.trim();
+        let newPhoneAdd = this.spanPhoneAdd.textContent.trim();
+        let newWebSiteAdd = this.spanWebSiteAdd.textContent.trim();
 
         let flag = false;
 
