@@ -55,7 +55,6 @@ class Data {
         this.newUser.website = newWebSiteAdd;
 
         this.etalonUsersArr.push(this.newUser);
-        console.log(this.etalonUsersArr);
     }
 }
 
