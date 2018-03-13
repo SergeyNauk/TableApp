@@ -1,0 +1,208 @@
+@import 'reset.scss';
+
+$main-color: #2980b9;
+
+html,body {
+  height: 99.9%;
+}
+
+header {
+  width: 100%;
+  height: 16.66%;
+  position: relative;
+  background-color:$main-color;
+}
+
+main {
+  width: 100%;
+  height: 83%;
+}
+
+.wrapperH6 {
+  width: 50%;
+  height: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  color: white;
+  font-size: 200%;
+}
+
+.wrapperTable {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  thead {
+    width: 100%;
+    height: auto;
+    border-bottom: solid 2px $main-color;
+    tr {
+      width: 100%;
+      td {
+        &:nth-child(1) {
+          width: 4%;
+        }
+        &:nth-child(5) {
+          width: 12%;
+        }
+        width: 28%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+  tbody {
+    width: 100%;
+    tr {
+      &:nth-child(1) {
+        td {
+          padding-top: 10px;
+        }
+      }
+      width: 100%;
+      height: auto;
+      td {
+        &:nth-child(1) {
+          width: 4%;
+        }
+        &:nth-child(5) {
+          width: 12%;
+        }
+        width: 28%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.belize-hole-flat-button {
+  position: relative;
+  vertical-align: top;
+  width: 50px;
+  height: 25px;
+  padding: 2px;
+  border-radius: 5px;
+  outline: 0;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2980b9;
+  border: 0;
+  border-bottom: 2px solid #2475ab;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #2475ab;
+  box-shadow: inset 0 -2px #2475ab;
+}
+.belize-hole-flat-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.more {
+  margin-left: 7px;
+}
+
+table {
+  tbody {
+    tr:hover {
+      background-color: gainsboro;
+      cursor: pointer;
+    }
+  }
+}
+
+.showMore {
+  display: none;
+}
+
+.showMoreAdd {
+  padding: 15px;
+  display: block;
+  position: absolute;
+  top: 10%;
+  left:20%;
+  width:45%;
+  height: 33%;
+  background-color: #F5F5F5;
+  span {
+    width: 45%;
+    height: 11%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    outline: 0;
+  }
+  .moreButtons {
+    margin-top: 3%;
+    margin-left: 43%;
+  }
+  .change {
+    width: 90px;
+  }
+}
+
+.wrapperAddButton {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-top: 20px;
+  .addUser {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 120px;
+  }
+}
+
+.addUserDiv {
+  display: none;
+}
+
+.newUser {
+  padding: 15px;
+  display: block;
+  position: absolute;
+  top: 10%;
+  left:20%;
+  width:45%;
+  height: 33%;
+  background-color: #F5F5F5;
+  span {
+    width: 45%;
+    height: 11%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    outline: 0;
+  }
+  .saveBtnWrapp {
+    margin-left: 35%;
+    button {
+      width: 100px;
+      margin-top: 15px;
+    }
+  }
+}
+
+[contentEditable=true]:empty:not(:focus):before{
+  content:attr(data-placeholder);
+  opacity: 0.5;
+}
+

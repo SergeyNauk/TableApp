@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Life codding app</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header>
+    <div class="wrapperH6"><h6>Table application</h6></div>
+</header>
+<main>
+    <div class="wrapperAddButton">
+        <button class="belize-hole-flat-button addUser">ADD NEW USER</button>
+    </div>
+    <div class="wrapperTable">
+        <table>
+            <thead>
+                <tr>
+                    <td> id </td>
+                    <td> name </td>
+                    <td> userName </td>
+                    <td> eMail </td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody class="renderElem">
+            </tbody>
+        </table>
+    </div>
+    <div class="showMore">
+        <span>id</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanId"></span><br>
+        <span>name</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanName"></span><br>
+        <span>userName</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanUserName"></span><br>
+        <span>eMail</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanEmail"></span><br>
+        <span>city</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanCity"></span><br>
+        <span>phone</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanPhone"></span><br>
+        <span>webSite</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanWebSite"></span><br>
+        <div class="moreButtons">
+            <button class="belize-hole-flat-button" value="backBtn">back</button>
+            <button class="belize-hole-flat-button change" value="saveBtn" title="EDIT ANY FIELD">save change</button>
+        </div>
+    </div>
+    <div class="addUserDiv">
+        <span>id</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanIdAdd" data-placeholder="enter here..."></span><br>
+        <span>name</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanNameAdd" data-placeholder="enter here..."></span><br>
+        <span>userName</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanUserNameAdd" data-placeholder="enter here..."></span><br>
+        <span>eMail</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanEmailAdd" data-placeholder="enter here..."></span><br>
+        <span>city</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanCityAdd" data-placeholder="enter here..."></span><br>
+        <span>phone</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanPhoneAdd" data-placeholder="enter here..."></span><br>
+        <span>webSite</span><span contenteditable="true" title="EDIT THIS FIELD" class="spanWebSiteAdd" data-placeholder="enter here..."></span><br>
+        <div class="saveBtnWrapp">
+            <button class="belize-hole-flat-button saveNewUser">save new user</button>
+            <button class="belize-hole-flat-button backNewUser">back</button>
+        </div>
+    </div>
+</main>
+<script src="dist/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "table_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "Sergey Nauk",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  }
+}
