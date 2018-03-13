@@ -16,6 +16,7 @@ class Listener {
         this.spanCity = document.querySelector('.spanCity');
         this.spanPhone = document.querySelector('.spanPhone');
         this.spanWebSite = document.querySelector('.spanWebSite');
+        this.showSelect = document.querySelector('.showSelect');
 
         this.spanIdAdd = document.querySelector('.spanIdAdd');
         this.spanNameAdd = document.querySelector('.spanNameAdd');
@@ -24,6 +25,7 @@ class Listener {
         this.spanCityAdd = document.querySelector('.spanCityAdd');
         this.spanPhoneAdd = document.querySelector('.spanPhoneAdd');
         this.spanWebSiteAdd = document.querySelector('.spanWebSiteAdd');
+        this.addSelect = document.querySelector('.addSelect');
     }
 
     initApp() {
@@ -66,6 +68,8 @@ class Listener {
         } else if (e.target.value == 'moreBtn') {
             this.render.showMore(targetRow);
             this.data.setIdShowElem(idValue);
+        } else if (e.target.value == 'user' || e.target.value == 'admin' || e.target.value == 'batman') {
+            this.data.setSelectField(targetRow);
         }
     }
 
@@ -96,6 +100,7 @@ class Listener {
         let newCity = this.spanCity.textContent.trim();
         let newPhone = this.spanPhone.textContent.trim();
         let newWebSite = this.spanWebSite.textContent.trim();
+        let newStatus = this.showSelect.value;
 
         let flag = false;
 
@@ -135,8 +140,8 @@ class Listener {
         }
 
         if (flag == false) {
-            this.data.setChange(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite);
-            this.render.showChange(newId, newName, newUserName, newEmail);
+            this.data.setChange(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite, newStatus);
+            this.render.showChange(newId, newName, newUserName, newEmail, newStatus);
             this.render.closeModalWindow();
         }
     }
@@ -160,6 +165,7 @@ class Listener {
         let newCityAdd = this.spanCityAdd.textContent.trim();
         let newPhoneAdd = this.spanPhoneAdd.textContent.trim();
         let newWebSiteAdd = this.spanWebSiteAdd.textContent.trim();
+        let newStatusAdd = this.addSelect.value;
 
         let flag = false;
 
@@ -199,10 +205,10 @@ class Listener {
         }
 
         if (flag == false) {
-            this.data.pushUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd, newCityAdd, newPhoneAdd, newWebSiteAdd);
-            this.render.showNewUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd);
+            this.data.pushUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd, newCityAdd, newPhoneAdd, newWebSiteAdd, newStatusAdd);
+            this.render.showNewUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd, newStatusAdd);
             this.render.cleanNewUserSpan(this.spanIdAdd, this.spanNameAdd, this.spanUserNameAdd, this.spanEmailAdd,
-                this.spanCityAdd, this.spanPhoneAdd, this.spanWebSiteAdd);
+                this.spanCityAdd, this.spanPhoneAdd, this.spanWebSiteAdd, this.addSelect);
             this.render.showAddUserDiv();
         }
     }
