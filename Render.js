@@ -103,10 +103,6 @@ class Render {
         elem.textContent = 'field is required !'
     }
 
-    showAddUserDiv() {
-        this.addUserDiv.classList.toggle('newUser');
-    }
-
     showNewUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd, newStatusAdd) {
         let templateSelect;
 

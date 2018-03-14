@@ -142,6 +142,7 @@ table {
   padding: 15px;
   display: block;
   position: absolute;
+  border: solid 2px $main-color;
   top: 10%;
   left:27.5%;
   width:45%;
@@ -156,7 +157,6 @@ table {
     outline: 0;
   }
   .moreButtons {
-    margin-top: 1%;
     margin-left: 43%;
   }
   .change {

@@ -146,6 +146,7 @@ table tbody tr:hover {
   padding: 15px;
   display: block;
   position: absolute;
+  border: solid 2px #2980b9;
   top: 10%;
   left: 27.5%;
   width: 45%;
@@ -159,7 +160,6 @@ table tbody tr:hover {
     font-size: 20px;
     outline: 0; }
   .showMoreAdd .moreButtons {
-    margin-top: 1%;
     margin-left: 43%; }
   .showMoreAdd .change {
     width: 90px; }
