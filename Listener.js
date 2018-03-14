@@ -61,14 +61,6 @@ class Listener {
         }
     }
 
-    targetElemModalWindow(e, whoIs) {
-       if (e.target.value == 'backBtn') {
-            this.render.closeModalWindow();
-       } else if (e.target.value == 'saveBtn') {
-           this.validateId(whoIs);
-       }
-    }
-
     validateId() {
           let whoIs = this.data.idShowElem == '' ? 'addUser' : 'showMore';
 
@@ -153,74 +145,6 @@ class Listener {
                 this.data.cleanUserId();
                 this.render.closeModalWindow();
             }
-        }
-    }
-
-
-    validateNewUserId() {
-        let newIdAdd = this.spanIdAdd.textContent.trim();
-        let considenceIdAdd = false;
-
-        this.data.etalonUsersArr.forEach((elem) => {
-            String(elem.id) == newIdAdd  ?  considenceIdAdd = true : elem.id;
-        });
-
-        considenceIdAdd == false ? this.validateNewUserData() : this.render.errorId(this.spanIdAdd);
-    }
-
-    validateNewUserData() {
-        let newIdAdd = this.spanIdAdd.textContent.trim();
-        let newNameAdd = this.spanNameAdd.textContent.trim();
-        let newUserNameAdd = this.spanUserNameAdd.textContent.trim();
-        let newEmailAdd = this.spanEmailAdd.textContent.trim();
-        let newCityAdd = this.spanCityAdd.textContent.trim();
-        let newPhoneAdd = this.spanPhoneAdd.textContent.trim();
-        let newWebSiteAdd = this.spanWebSiteAdd.textContent.trim();
-        let newStatusAdd = this.addSelect.value;
-
-        let flag = false;
-
-        if (newIdAdd == '' || newIdAdd == 'id not unique !' || newIdAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanIdAdd);
-        }
-
-        if (newNameAdd == '' || newNameAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanNameAdd);
-        }
-
-        if (newUserNameAdd == '' || newUserNameAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanUserNameAdd);
-        }
-
-        if (newEmailAdd == '' || newEmailAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanEmailAdd);
-        }
-
-        if (newCityAdd == '' || newCityAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanCityAdd);
-        }
-
-        if (newPhoneAdd == '' || newPhoneAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanPhoneAdd);
-        }
-
-        if (newWebSiteAdd == ''  || newWebSiteAdd == 'field is required !') {
-            flag = true;
-            this.render.errorMess(this.spanWebSiteAdd);
-        }
-
-        if (flag == false) {
-            this.data.pushUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd, newCityAdd, newPhoneAdd, newWebSiteAdd, newStatusAdd);
-            this.render.showNewUser(newIdAdd, newNameAdd, newUserNameAdd, newEmailAdd, newStatusAdd);
-            this.render.cleanNewUserSpan(this.spanIdAdd, this.spanNameAdd, this.spanUserNameAdd, this.spanEmailAdd,
-                this.spanCityAdd, this.spanPhoneAdd, this.spanWebSiteAdd, this.addSelect);
-            this.render.showAddUserDiv();
         }
     }
 }

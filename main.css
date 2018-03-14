@@ -142,6 +142,7 @@ table tbody tr:hover {
   display: none; }
 
 .showMoreAdd {
+  z-index: 999;
   padding: 15px;
   display: block;
   position: absolute;
@@ -190,5 +191,20 @@ select {
 
 .showSelect .addSelect {
   margin-top: 10px; }
+
+.modal {
+  opacity: 1;
+  width: 100%;
+  height: 100%; }
+
+.modalAdd {
+  display: inline-block;
+  position: relative;
+  background-color: #F5F5F5;
+  opacity: 0.6;
+  z-index: -1; }
+
+.spanId, .spanName, .spanUserName, .spanEmail, .spanCity, .spanPhone, .spanWebSite, .showSelect {
+  color: #2980b9; }
 
 /*# sourceMappingURL=main.css.map */

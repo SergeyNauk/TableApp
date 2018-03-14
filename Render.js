@@ -5,6 +5,7 @@ class Render {
         this.renderElem = document.querySelector('.renderElem');
         this.showMoreDiv = document.querySelector('.showMore');
         this.addUserDiv = document.querySelector('.addUserDiv');
+        this.modal = document.querySelector('.modal');
 
         this.spanId = document.querySelector('.spanId');
         this.spanName = document.querySelector('.spanName');
@@ -46,6 +47,7 @@ class Render {
 
     showMore(row) {
         this.showMoreDiv.classList.toggle('showMoreAdd');
+        this.modal.classList.toggle('modalAdd');
 
         if (row != 'addUser') {
             let idValue = row.children[0].textContent;
@@ -76,6 +78,7 @@ class Render {
 
     closeModalWindow() {
         this.showMoreDiv.classList.toggle('showMoreAdd');
+        this.modal.classList.toggle('modalAdd');
     }
 
     showChange(newId, newName, newUserName, newEmail, newStatus) {
