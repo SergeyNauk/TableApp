@@ -66,6 +66,7 @@ class Data {
         this.newUser.status = newStatusAdd;
 
         this.etalonUsersArr.push(this.newUser);
+        console.log(this.etalonUsersArr, 'push');
     }
 
     setSelectField(eventRow) {
@@ -75,6 +76,10 @@ class Data {
         this.etalonUsersArr.forEach((elem)=> {
             elem.id == idElem ? elem.status = selectValue : elem.id;
         });
+    }
+
+    cleanUserId() {
+        this.idShowElem = '';
     }
 }
 

@@ -47,20 +47,31 @@ class Render {
     showMore(row) {
         this.showMoreDiv.classList.toggle('showMoreAdd');
 
-        let idValue = row.children[0].textContent;
+        if (row != 'addUser') {
+            let idValue = row.children[0].textContent;
 
-        this.data.etalonUsersArr.forEach((elem) => {
-            if (elem.id == idValue) {
-                this.spanId.textContent = elem.id;
-                this.spanName.textContent = elem.name;
-                this.spanUserName.textContent = elem.username;
-                this.spanEmail.textContent = elem.email;
-                this.spanCity.textContent = elem.address.city;
-                this.spanPhone.textContent = elem.phone;
-                this.spanWebSite.textContent = elem.website;
-                this.showSelect.value = elem.status;
-            }
-        });
+            this.data.etalonUsersArr.forEach((elem) => {
+                if (elem.id == idValue) {
+                    this.spanId.textContent = elem.id;
+                    this.spanName.textContent = elem.name;
+                    this.spanUserName.textContent = elem.username;
+                    this.spanEmail.textContent = elem.email;
+                    this.spanCity.textContent = elem.address.city;
+                    this.spanPhone.textContent = elem.phone;
+                    this.spanWebSite.textContent = elem.website;
+                    this.showSelect.value = elem.status;
+                }
+            });
+        } else {
+            this.spanId.textContent = '';
+            this.spanName.textContent = '';
+            this.spanUserName.textContent = '';
+            this.spanEmail.textContent = '';
+            this.spanCity.textContent = '';
+            this.spanPhone.textContent = '';
+            this.spanWebSite.textContent = '';
+            this.showSelect.value = 'user';
+        }
     }
 
     closeModalWindow() {

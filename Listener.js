@@ -6,8 +6,9 @@ class Listener {
         this.renderElem = document.querySelector('.renderElem');
         this.showMoreElem = document.querySelector('.showMore');
         this.addUser = document.querySelector('.addUser');
-        this.saveNewUser = document.querySelector('.saveNewUser');
-        this.backNewUser = document.querySelector('.backNewUser');
+
+        this.backBtn = document.querySelector('.backBtn');
+        this.saveBtn = document.querySelector('.saveBtn');
 
         this.spanId = document.querySelector('.spanId');
         this.spanName = document.querySelector('.spanName');
@@ -17,15 +18,6 @@ class Listener {
         this.spanPhone = document.querySelector('.spanPhone');
         this.spanWebSite = document.querySelector('.spanWebSite');
         this.showSelect = document.querySelector('.showSelect');
-
-        this.spanIdAdd = document.querySelector('.spanIdAdd');
-        this.spanNameAdd = document.querySelector('.spanNameAdd');
-        this.spanUserNameAdd = document.querySelector('.spanUserNameAdd');
-        this.spanEmailAdd = document.querySelector('.spanEmailAdd');
-        this.spanCityAdd = document.querySelector('.spanCityAdd');
-        this.spanPhoneAdd = document.querySelector('.spanPhoneAdd');
-        this.spanWebSiteAdd = document.querySelector('.spanWebSiteAdd');
-        this.addSelect = document.querySelector('.addSelect');
     }
 
     initApp() {
@@ -40,19 +32,15 @@ class Listener {
                     this.renderElem.addEventListener('click', (e) => {
                         this.targetElemTable(e);
                     });
-                    this.showMoreElem.addEventListener('click', (e) => {
-                        this.targetElemModalWindow(e);
+                    this.addUser.addEventListener('click', (e) => {
+                        this.render.showMore('addUser');
                     });
-                    this.addUser.addEventListener('click', () => {
-                        this.render.showAddUserDiv();
+                    this.backBtn.addEventListener('click', () => {
+                        this.render.closeModalWindow();
+                        this.data.cleanUserId();
                     });
-                    this.saveNewUser.addEventListener('click', () => {
-                        this.validateNewUserId();
-                    });
-                    this.backNewUser.addEventListener('click', () => {
-                        this.render.showAddUserDiv();
-                        this.render.cleanNewUserSpan(this.spanIdAdd, this.spanNameAdd, this.spanUserNameAdd, this.spanEmailAdd,
-                            this.spanCityAdd, this.spanPhoneAdd, this.spanWebSiteAdd);
+                    this.saveBtn.addEventListener('click', () => {
+                        this.validateId();
                     });
                 })
                 .catch(result => console.log('error'));
@@ -73,26 +61,34 @@ class Listener {
         }
     }
 
-    targetElemModalWindow(e) {
+    targetElemModalWindow(e, whoIs) {
        if (e.target.value == 'backBtn') {
             this.render.closeModalWindow();
        } else if (e.target.value == 'saveBtn') {
-           this.validateId();
+           this.validateId(whoIs);
        }
     }
 
     validateId() {
-        let newId = this.spanId.textContent.trim();
-        let considenceId = false;
+          let whoIs = this.data.idShowElem == '' ? 'addUser' : 'showMore';
 
-        this.data.etalonUsersArr.forEach((elem) => {
-             String(elem.id) == newId  ?  considenceId = true : elem.id;
-        });
+            console.log(whoIs, this.data.idShowElem ,'validate');
 
-        considenceId == false ? this.validateOtherDate() : this.render.errorId(this.spanId);
+            let newId = this.spanId.textContent.trim();
+            let considenceId = false;
+
+            this.data.etalonUsersArr.forEach((elem) => {
+                String(elem.id) == newId ? considenceId = true : elem.id;
+            });
+
+        if (whoIs == 'showMore') {
+            considenceId == false || newId == this.data.idShowElem ? this.validateOtherDate(whoIs) : this.render.errorId(this.spanId);
+        } else {
+            considenceId == false ? this.validateOtherDate(whoIs) : this.render.errorId(this.spanId);
+        }
     }
 
-    validateOtherDate() {
+    validateOtherDate(whoIs) {
         let newId = this.spanId.textContent.trim();
         let newName = this.spanName.textContent.trim();
         let newUserName = this.spanUserName.textContent.trim();
@@ -134,17 +130,32 @@ class Listener {
             this.render.errorMess(this.spanPhone);
         }
 
-        if (newWebSite == ''  || newWebSite == 'field is required !') {
+        if (newWebSite == '' || newWebSite == 'field is required !') {
             flag = true;
             this.render.errorMess(this.spanWebSite);
         }
 
-        if (flag == false) {
-            this.data.setChange(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite, newStatus);
-            this.render.showChange(newId, newName, newUserName, newEmail, newStatus);
-            this.render.closeModalWindow();
+        if (whoIs == 'showMore') {
+            if (flag == false) {
+                console.log(whoIs, 'show');
+                this.data.setChange(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite, newStatus);
+                this.render.showChange(newId, newName, newUserName, newEmail, newStatus);
+                this.data.cleanUserId();
+                this.render.closeModalWindow();
+            }
+        } else {
+            if (flag == false) {
+                console.log(whoIs, 'add');
+                this.data.pushUser(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite, newStatus);
+                this.render.showNewUser(newId, newName, newUserName, newEmail, newStatus);
+                this.render.cleanNewUserSpan(this.spanId, this.spanName, this.spanUserName, this.spanEmail,
+                    this.spanCity, this.spanPhone, this.spanWebSite, this.showSelect);
+                this.data.cleanUserId();
+                this.render.closeModalWindow();
+            }
         }
     }
+
 
     validateNewUserId() {
         let newIdAdd = this.spanIdAdd.textContent.trim();
