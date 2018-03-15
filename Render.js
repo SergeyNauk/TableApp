@@ -6,6 +6,8 @@ class Render {
         this.showMoreDiv = document.querySelector('.showMore');
         this.addUserDiv = document.querySelector('.addUserDiv');
         this.modal = document.querySelector('.modal');
+        this.clarify = document.querySelector('.clarify');
+        this.yesBtn = document.querySelector('.yesBtn');
 
         this.spanId = document.querySelector('.spanId');
         this.spanName = document.querySelector('.spanName');
@@ -39,10 +41,30 @@ class Render {
 
             this.renderElem.insertAdjacentHTML('beforeend', template);
         });
+
+        this.renderStatus();
     }
 
-    deleteRow(elem) {
-        elem.remove();
+    renderStatus() {
+        let rowCollection = document.querySelectorAll('tbody tr');
+
+        this.data.etalonUsersArr.forEach((elem) => {
+            rowCollection.forEach((row) => {
+                elem.id == row.children[0].textContent ? row.children[4].children[0].value = elem.status : elem.status;
+            })
+        });
+    }
+
+    deleteRow(button) {
+        let idElem = button.getAttribute('data-row');
+        let userCollection = document.querySelectorAll('tbody tr');
+
+        userCollection.forEach((elem) => {
+            elem.children[0].textContent == idElem ? elem.remove() : idElem;
+        });
+
+        this.modal.classList.toggle('modalAdd');
+        this.clarify.classList.toggle('clarifyAdd');
     }
 
     showMore(row) {
@@ -150,6 +172,18 @@ class Render {
         spanPhoneAdd.textContent = '';
         spanWebSiteAdd.textContent = '';
         addSelect.value = 'user';
+    }
+
+    showClarify(idValue) {
+        this.modal.classList.toggle('modalAdd');
+        this.clarify.classList.toggle('clarifyAdd');
+
+        this.yesBtn.setAttribute('data-row',`${idValue}`);
+    }
+
+    closeClarify() {
+        this.modal.classList.toggle('modalAdd');
+        this.clarify.classList.toggle('clarifyAdd');
     }
 }
 

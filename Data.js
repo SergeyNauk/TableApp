@@ -32,22 +32,6 @@ class Data {
                 this.setDefaultSelect();
             }
         }
-        //if (saveArr == undefined) {
-           // this.etalonUsersArr = [...arr];
-           // this.setDefaultSelect();
-       // } else {
-          //  this.etalonUsersArr = saveArr;
-       // }
-
-            console.log(saveArr, 'arr5');
-
-         //   this.etalonUsersArr = saveArr;
-       //} else {
-           // this.etalonUsersArr = [...arr];
-           // this.setDefaultSelect();
-        //}
-
-
     }
 
     setDefaultSelect() {
@@ -56,10 +40,13 @@ class Data {
         });
     }
 
-    modifyUsersArr(idValue) {
+    modifyUsersArr(button) {
+        let idValue = button.getAttribute('data-row');
+
         this.etalonUsersArr.forEach((elem, index) => {
             elem.id == idValue ? this.etalonUsersArr.splice(index, 1) : idValue;
         });
+
     }
 
     setIdShowElem(id) {
@@ -92,7 +79,6 @@ class Data {
         this.newUser.status = newStatusAdd;
 
         this.etalonUsersArr.push(this.newUser);
-        console.log(this.etalonUsersArr, 'push');
     }
 
     setSelectField(eventRow) {
@@ -111,8 +97,6 @@ class Data {
     saveInfo() {
         let serializeUserArr = JSON.stringify(this.etalonUsersArr);
         localStorage.setItem('localArr', serializeUserArr);
-
-
     }
 }
 

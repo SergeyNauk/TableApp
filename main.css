@@ -207,4 +207,33 @@ select {
 .spanId, .spanName, .spanUserName, .spanEmail, .spanCity, .spanPhone, .spanWebSite, .showSelect {
   color: #2980b9; }
 
+.clarify {
+  display: none; }
+
+.clarifyAdd {
+  border: solid 2px #2980b9;
+  position: absolute;
+  display: block;
+  top: 30%;
+  left: 40%;
+  width: 20%;
+  height: 10%;
+  margin-top: 20px;
+  background-color: #F5F5F5;
+  z-index: 999; }
+  .clarifyAdd span {
+    margin-top: 3%;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #2980b9; }
+  .clarifyAdd .clarifyBtn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 39%;
+    margin: auto; }
+    .clarifyAdd .clarifyBtn button {
+      margin-top: 4%; }
+
 /*# sourceMappingURL=main.css.map */

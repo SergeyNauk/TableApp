@@ -9,6 +9,8 @@ class Listener {
 
         this.backBtn = document.querySelector('.backBtn');
         this.saveBtn = document.querySelector('.saveBtn');
+        this.noBtn = document.querySelector('.noBtn');
+        this.yesBtn = document.querySelector('.yesBtn');
 
         this.spanId = document.querySelector('.spanId');
         this.spanName = document.querySelector('.spanName');
@@ -45,6 +47,13 @@ class Listener {
                     this.saveBtn.addEventListener('click', () => {
                         this.validateId();
                     });
+                    this.noBtn.addEventListener('click', () => {
+                        this.render.closeClarify();
+                    });
+                    this.yesBtn.addEventListener('click', () => {
+                        this.data.modifyUsersArr(this.yesBtn);
+                        this.render.deleteRow(this.yesBtn);
+                    });
                 })
                 .catch(result => console.log('error'));
     }
@@ -54,8 +63,7 @@ class Listener {
         let idValue = targetRow.children[0].textContent;
 
         if (e.target.value == 'deleteBtn') {
-            this.data.modifyUsersArr(idValue);
-            this.render.deleteRow(targetRow);
+            this.render.showClarify(idValue);
         } else if (e.target.value == 'moreBtn') {
             this.render.showMore(targetRow);
             this.data.setIdShowElem(idValue);
@@ -66,9 +74,6 @@ class Listener {
 
     validateId() {
           let whoIs = this.data.idShowElem == '' ? 'addUser' : 'showMore';
-
-            console.log(whoIs, this.data.idShowElem ,'validate');
-
             let newId = this.spanId.textContent.trim();
             let considenceId = false;
 

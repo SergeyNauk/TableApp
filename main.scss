@@ -216,3 +216,37 @@ select {
   color: $main-color;
 }
 
+.clarify {
+  display: none;
+}
+
+.clarifyAdd {
+  border: solid 2px $main-color;
+  span {
+    margin-top: 3%;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: $main-color;
+  }
+  position: absolute;
+  display: block;
+  top: 30%;
+  left:40%;
+  width:20%;
+  height: 10%;
+  margin-top: 20px;
+  background-color: #F5F5F5;
+  z-index: 999;
+  .clarifyBtn {
+    button {
+      margin-top: 4%;
+    }
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 39%;
+    margin: auto;
+  }
+}
+
