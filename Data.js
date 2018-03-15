@@ -19,9 +19,35 @@ class Data {
     }
 
     createUsersArr(arr) {
-        this.etalonUsersArr = [...arr];
+        let saveArr = JSON.parse(localStorage.getItem('localArr'));
 
-        this.setDefaultSelect();
+        if (saveArr == null) {
+            this.etalonUsersArr = [...arr];
+            this.setDefaultSelect();
+        } else {
+            if (saveArr.length > 0) {
+                this.etalonUsersArr = [...saveArr];
+            } else {
+                this.etalonUsersArr = [...arr];
+                this.setDefaultSelect();
+            }
+        }
+        //if (saveArr == undefined) {
+           // this.etalonUsersArr = [...arr];
+           // this.setDefaultSelect();
+       // } else {
+          //  this.etalonUsersArr = saveArr;
+       // }
+
+            console.log(saveArr, 'arr5');
+
+         //   this.etalonUsersArr = saveArr;
+       //} else {
+           // this.etalonUsersArr = [...arr];
+           // this.setDefaultSelect();
+        //}
+
+
     }
 
     setDefaultSelect() {
@@ -80,6 +106,13 @@ class Data {
 
     cleanUserId() {
         this.idShowElem = '';
+    }
+
+    saveInfo() {
+        let serializeUserArr = JSON.stringify(this.etalonUsersArr);
+        localStorage.setItem('localArr', serializeUserArr);
+
+
     }
 }
 

@@ -29,6 +29,9 @@ class Listener {
                     this.data.createUsersArr(result);
                     this.render.buildTable();
 
+                    window.addEventListener('beforeunload', () => {
+                        this.data.saveInfo();
+                    });
                     this.renderElem.addEventListener('click', (e) => {
                         this.targetElemTable(e);
                     });
