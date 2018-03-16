@@ -85,7 +85,7 @@ class Data {
         let idElem = eventRow.children[0].textContent;
         let selectValue =eventRow.children[4].children[0].value;
 
-        this.etalonUsersArr.forEach((elem)=> {
+        this.etalonUsersArr.forEach((elem) => {
             elem.id == idElem ? elem.status = selectValue : elem.id;
         });
     }

@@ -137,7 +137,6 @@ class Listener {
 
         if (whoIs == 'showMore') {
             if (flag == false) {
-                console.log(whoIs, 'show');
                 this.data.setChange(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite, newStatus);
                 this.render.showChange(newId, newName, newUserName, newEmail, newStatus);
                 this.data.cleanUserId();
@@ -145,7 +144,6 @@ class Listener {
             }
         } else {
             if (flag == false) {
-                console.log(whoIs, 'add');
                 this.data.pushUser(newId, newName, newUserName, newEmail, newCity, newPhone, newWebSite, newStatus);
                 this.render.showNewUser(newId, newName, newUserName, newEmail, newStatus);
                 this.render.cleanNewUserSpan(this.spanId, this.spanName, this.spanUserName, this.spanEmail,
